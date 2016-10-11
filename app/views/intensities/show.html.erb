@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @intensity.name %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @intensity.level %>
+</p>
+
+<%= link_to 'Edit', edit_intensity_path(@intensity) %> |
+<%= link_to 'Back', intensities_path %>

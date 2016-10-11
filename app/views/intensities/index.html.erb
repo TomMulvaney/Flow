@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Intensities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Level</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @intensities.each do |intensity| %>
+      <tr>
+        <td><%= intensity.name %></td>
+        <td><%= intensity.level %></td>
+        <td><%= link_to 'Show', intensity %></td>
+        <td><%= link_to 'Edit', edit_intensity_path(intensity) %></td>
+        <td><%= link_to 'Destroy', intensity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Intensity', new_intensity_path %>

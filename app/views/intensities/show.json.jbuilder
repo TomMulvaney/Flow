@@ -1,0 +1,1 @@
+json.partial! "intensities/intensity", intensity: @intensity
