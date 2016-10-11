@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: { maximum: 30 }
   validates :email, presence: true, uniqueness: true, format: EMAIL_REGEX
   #validates :hashed_password, presence: true, uniqueness: true
-  validates :is_admin, inclusion: { in: [true, false], message: "%{value} is not valid for is_admin boolean" }
+  validates :admin?, inclusion: { in: [true, false], message: "%{value} is not valid for admin? boolean" }
 
   validates :password, confirmation: true #password_confirmation attr
   validates_length_of :password, in: 6..20, on: :create

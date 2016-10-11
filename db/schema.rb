@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011133219) do
+ActiveRecord::Schema.define(version: 20161011194256) do
 
   create_table "intensities", force: :cascade do |t|
     t.string   "name"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20161011133219) do
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.string   "email"
-    t.boolean  "is_admin",           default: false
+    t.boolean  "admin?",             default: false
     t.string   "foo"
     t.string   "encrypted_password"
     t.string   "salt"
