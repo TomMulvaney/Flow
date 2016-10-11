@@ -1,2 +1,5 @@
-<h1>Sessions#home</h1>
-<p>Find me in app/views/sessions/home.html.erb</p>
+<% @page_title = "UserAuth | Login" -%>
+<div class= "Home">
+  <h1><%= @current_user.username %> </h1>
+  <%= link_to "logout", action: "logout" %>
+</div>
