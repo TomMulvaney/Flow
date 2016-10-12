@@ -35,8 +35,12 @@ group :development, :test do
   gem 'byebug', platform: :mri
 
   # Use rspec for testing
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails'
 
+  # shoulda for matchers
+  gem 'shoulda-matchers'
+
+  # factories
   gem 'factory_girl_rails'
 end
 
