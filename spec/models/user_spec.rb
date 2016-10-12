@@ -18,7 +18,7 @@ RSpec.describe User, type: :model do
   let(:salt) { "$2a$10$yRUmHHKdvlKgkbp27cnndO" }
   let(:encrypted_password) { "DummyEncrytedPassword" }
 
-  before(:example) do
+  before(:each) do
     BCrypt::Engine.stubs(:generate_salt).returns(salt)
     BCrypt::Engine.stubs(:hash_secret).returns(encrypted_password)
   end
