@@ -6,7 +6,7 @@ FactoryGirl.define do
     email "test@foo.com"
     admin? false
 
-    password "helloworld" # TODO: This needs to go, we should not need a password
+    password "helloworld"
 
     factory :admin do
       admin? true
