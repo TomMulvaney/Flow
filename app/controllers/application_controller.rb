@@ -24,7 +24,6 @@ class ApplicationController < ActionController::Base
 
   def check_admin
     if !session[:user_id] || !User.find(:user_id).admin?
-
       redirect_to(:controller => 'sessions', :action => 'home')
       return false
     else

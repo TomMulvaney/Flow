@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :save_login_state, only: [:new, :create]
+  before_action :save_login_state, only: [:new, :create] # We do not currently allow users to be created apart from registration
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user, except: [:new, :create]
 
   # GET /users
   # GET /users.json
@@ -26,18 +27,19 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         flash[:notice] = "You signed up successfully"
         flash[:color] = "valid"
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        session[:user_id] = @user.id
+        # format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to home_path, notice: 'User was successfully created'}
         format.json { render :show, status: :created, location: @user }
       else
         flash[:notice] = "Form is invalid"
         flash[:color] = "invalid"
         format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        #format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
