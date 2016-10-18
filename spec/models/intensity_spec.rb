@@ -1,6 +1,5 @@
 require 'rails_helper'
 require 'factory_girl'
-require 'bcrypt'
 require 'shoulda-matchers'
 
 RSpec.describe Intensity, type: :model do
