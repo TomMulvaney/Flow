@@ -44,14 +44,16 @@ RSpec.describe "authentication", type: :feature do
   end
 
   it "registers a valid user" do
+    user = FactoryGirl.build(:user)
     visit new_user_path
     user.password = get_password()
     within "div.signup_form" do
-      fill_in "user_username", with: "UniqueUsername" # Username must be unique
-      fill_in "user_email", with: "uniqueemail@foo.com" # Email must be unique
+      fill_in "user_username", with: user.username
+      fill_in "user_email", with: user.email
       fill_in "user_password", with: user.password
       fill_in "user_password_confirmation", with: user.password
       click_on("Signup")
+      puts user.errors.full_messages
       expect(current_path).to eq(home_path)
     end
   end
