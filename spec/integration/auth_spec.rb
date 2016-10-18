@@ -47,8 +47,8 @@ RSpec.describe "authentication", type: :feature do
     visit new_user_path
     user.password = get_password()
     within "div.signup_form" do
-      fill_in "user_username", with: "UniqueUsername"
-      fill_in "user_email", with: "uniqueemail@foo.com"
+      fill_in "user_username", with: "UniqueUsername" # Username must be unique
+      fill_in "user_email", with: "uniqueemail@foo.com" # Email must be unique
       fill_in "user_password", with: user.password
       fill_in "user_password_confirmation", with: user.password
       click_on("Signup")
@@ -60,10 +60,6 @@ RSpec.describe "authentication", type: :feature do
     visit new_user_path
     user.password = get_password()
     within "div.signup_form" do
-      fill_in "user_username", with: user.username # Username not unique
-      fill_in "user_email", with: "uniqueemail" # Email in incorrect format
-      fill_in "user_password", with: user.password
-      fill_in "user_password_confirmation", with: user.password
       click_on("Signup")
       expect(current_path).to eq(users_path)
     end
