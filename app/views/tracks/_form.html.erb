@@ -12,23 +12,13 @@
   <% end %>
 
   <div class="field">
-    <p>Session</p>
-    <%= session.inspect %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
-  </div>
-
-  <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :filename %>
-    <%= f.text_field :filename %>
+    <%= f.label :file %>
+    <%= f.file_field :file %>
   </div>
 
   <div class="actions">

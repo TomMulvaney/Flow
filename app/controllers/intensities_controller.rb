@@ -14,7 +14,6 @@ class IntensitiesController < ApplicationController
 
   # GET /intensities/new
   def new
-    puts "New Intensity Page"
     @intensity = Intensity.new
   end
 

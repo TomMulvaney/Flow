@@ -15,6 +15,7 @@ class TracksController < ApplicationController
 
   # GET /tracks/new
   def new
+    puts "TracksController new()"
     @track = Track.new
   end
 
